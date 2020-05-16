@@ -34,7 +34,7 @@ Submission system continuously checks every team's repository for updates in the
 
 Docker image built from your code will be started with a `docker run` command.
 
-Two command line arguments will be provided to your program: server url and player key. Please, note that your code must communicate with the server provided via command line, using provided player key. Your code won't have access to the Internet.
+Two command line arguments will be provided to your program: server URL and player key. Please, note that your code must communicate with the server URL provided in the command line, using provided player key. Your code won't have access to the Internet.
 
 ## Limits
 

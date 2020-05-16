@@ -34,7 +34,7 @@ Submission system continuously checks every team's repository for updates in the
 
 Docker image built from your code will be started with a `docker run` command.
 
-Two environment variables will be provided to your program: `SERVER_URL` and `PLAYER_KEY`. Please, note that your code must communicate with the server specified in the environment variable, using provided player key. Your code won't have access to the Internet.
+Two command line arguments will be provided to your program: server url and player key. Please, note that your code must communicate with the server provided via command line, using provided player key. Your code won't have access to the Internet.
 
 ## Limits
 

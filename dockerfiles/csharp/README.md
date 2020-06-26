@@ -1,0 +1,1 @@
+Guaranteed to work with [starterkit-csharp](https://github.com/icfpcontest2020/starterkit-csharp).

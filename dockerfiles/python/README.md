@@ -1,0 +1,1 @@
+Guaranteed to work with [starterkit-python](https://github.com/icfpcontest2020/starterkit-python).

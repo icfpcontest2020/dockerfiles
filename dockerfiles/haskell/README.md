@@ -1,0 +1,1 @@
+Guaranteed to work with [starterkit-haskell](https://github.com/icfpcontest2020/starterkit-haskell).

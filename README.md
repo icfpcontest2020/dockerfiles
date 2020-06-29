@@ -37,7 +37,7 @@ Submission system continuously checks every team's repository for updates in the
 1. Clone the repository into a clean directory, check out the appropriate branch.
 2. Read the first word from the `.platform` file.
 3. Create/replace a Dockerfile in the root directory with contents from `dockerfiles/<platform>/Dockerfile` of _this_ repository (not your team's repository). `<platform>` is the word from step 2.
-4. Run `docker build`. Resulting image will be tagged with the commit hash and appear in the list of your submissions in your profile on the ICFPC web site, along with build logs. Assuming everything went well, your submission is now accepted and ready to play.
+4. Run `docker build`. Resulting image will be tagged with the commit hash and appear in the list of your submissions in your profile on the ICFPC web site, along with build logs. Assuming everything went well, your submission is now accepted and ready to run.
 
 There will be no Internet access during build. You will be limited to what your base Docker image provides and to the contents of your repository.
 
@@ -45,4 +45,4 @@ There will be no Internet access during build. You will be limited to what your 
 
 Docker image built from your code will be started with a `docker run` command.
 
-Two command line arguments will be provided to your program: server URL and player key. Please, note that your code must communicate with the server URL provided in the command line, using provided player key. Your code won't have access to the Internet.
+Command line arguments will be provided to your program. Your code won't have access to the Internet. However, your program will have to communicate with a remote server of organizers via HTTP.

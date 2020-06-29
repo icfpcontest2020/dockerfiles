@@ -1,8 +1,11 @@
 # Submission system
 
-As a part of the contest teams will be required to submit a small program.
+## TL;DR
+
+During the full round of the contest teams will be required to submit a small program.
+To do so, a team will securely grant the access to its private Git repository to organizers.
 We cannot disclose the nature of this program in advance, but we would like you to get acquainted with our submission system.
-Please, check that your programming language of choice is supported and send us a pull request or raise an issue if you have a suggestion or question.
+Please check that your programming language of choice is supported and [send us a pull request](https://github.com/icfpcontest2020/dockerfiles/pulls) or [raise an issue](https://github.com/icfpcontest2020/dockerfiles/issues) if you have a suggestion or question.
 
 ## Getting started
 
@@ -10,9 +13,9 @@ ICFPC 2020 organizers believe that most teams use version control systems to sto
 
 To submit code for ICFPC 2020, please:
 
-1. Create a *private* Git repository that is accessible from the Internet. You are free to choose any cloud-based repository hosting like GitHub, BitBucket, GitLab, etc. We recommend using GitLab, because its free plan allows unlimited private repositories with unlimited collaborators. This way you can use a single repository to collaborate on your code and to submit it. Please, refer to GitLab [documentation](https://docs.gitlab.com/ee/gitlab-basics/create-project.html) to learn more.
-2. Copy clone URL of your new repository and use it to register your team on the ICFPC web site. You should select the SSH clone option, so your URL looks like this: `git@gitlab.com:teamname/reponame.git`.
-3. Get your personal SSH key from your team's profile on the ICFPC web site. Grant read access for that key to your repository. If you're using GitLab, this option is available under Settings → CI / CD → Deploy Keys. Please, refer to GitLab [documentation](https://docs.gitlab.com/ee/ssh/#deploy-keys) to learn more.
+1. Create a *private* Git repository that is accessible from the Internet. You are free to choose any cloud-based repository hosting like GitHub, BitBucket, GitLab, etc. We recommend using GitHub or GitLab because their free plans allow unlimited private repositories with unlimited collaborators. This way you can use a single repository to collaborate on your code and to submit it. Please, refer to [GitHub](https://help.github.com/en/github/getting-started-with-github/create-a-repo) or [GitLab](https://docs.gitlab.com/ee/gitlab-basics/create-project.html) documentation to learn more.
+2. Copy clone URL of your new repository and use it to register your team on the ICFPC web site. You should select the SSH clone option, so your URL looks like this: `git@github.com:teamname/reponame.git`.
+3. Get your personal SSH key from your team's profile on the ICFPC web site. Grant read access for that key to your repository. If you're using GitHub, this option is available under Settings → Deploy keys (see [documentation](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) to learn more). If you're using GitLab, this option is available under Settings → CI / CD → Deploy Keys (see [documentation](https://docs.gitlab.com/ee/ssh/#deploy-keys) to learn more).
 4. Create a branch called `submission` in your repository. You can also create additional optional branches called `submissions/*` if you need. Only the code from these branches (not `master`!) will be considered as a submission. You can use other branches as you like, e.g. for active development.
 
 ## Docker images
@@ -23,7 +26,7 @@ To support as many platforms, frameworks and programming languages as possible, 
 
 In an effort to put all teams in similar positions, we won't require any Docker knowledge and won't allow custom Dockerfiles written by teams. This repository contains pre-written Dockerfiles for popular languages and frameworks (see `dockerfiles` directory). Only these Dockerfiles will be allowed by our submission system.
 
-If your favorite language is missing, or you know a way to improve existing Dockerfiles, please raise an issue or open a pull request in this repository at any time before or during the contest. Note that we won't accept any suggestions that give significant advantage to one platform or team over the others. For example, it's OK to add JSON parsing or HTTP request library as a dependency, but it's not OK to add a precalculated binary file for your team's program.
+If your favorite language is missing, or you know a way to improve existing Dockerfiles, please [raise an issue](https://github.com/icfpcontest2020/dockerfiles/issues) or [open a pull request](https://github.com/icfpcontest2020/dockerfiles/pulls) in this repository at any time before or during the contest. Note that we won't accept any suggestions that give significant advantage to one platform or team over the others. For example, it's OK to add JSON parsing or HTTP request library as a dependency, but it's not OK to add a precalculated binary file for your team's program.
 
 ## Submission mechanism
 

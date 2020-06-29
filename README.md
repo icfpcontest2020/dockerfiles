@@ -28,8 +28,6 @@ In an effort to put all teams in similar positions, we won't require any Docker 
 
 If your favorite language is missing, or you know a way to improve existing Dockerfiles, please [raise an issue](https://github.com/icfpcontest2020/dockerfiles/issues) or [open a pull request](https://github.com/icfpcontest2020/dockerfiles/pulls) in this repository at any time before or during the contest.
 
-Note that we won't accept any suggestions that give significant advantage to one platform or team over the others.
-
 ## Submission mechanism
 
 Submission system continuously checks every team's repository for updates in the `submission` and `submissions/*` branches. All other branches are ignored. New commits trigger a build which has the following steps:

@@ -1,5 +1,9 @@
 # Submission system
 
+As a part of the contest teams will be required to submit a small program.
+We cannot disclose the nature of this program in advance, but we would like you to get acquainted with our submission system.
+Please, check that your programming language of choice is supported and send us a pull request or raise an issue if you have a suggestion or question.
+
 ## Getting started
 
 ICFPC 2020 organizers believe that most teams use version control systems to store their code during the contest. We would like to encourage this good engineering practice, so we decided to accept submissions directly from Git repositories.

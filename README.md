@@ -5,7 +5,7 @@
 During the full round of the contest teams will be required to submit a small program.
 To do so, a team will securely grant the access to its private Git repository to organizers.
 We cannot disclose the nature of this program in advance, but we would like you to get acquainted with our submission system.
-Please check that your programming language of choice is supported and [send us a pull request](https://github.com/icfpcontest2020/dockerfiles/pulls) or [raise an issue](https://github.com/icfpcontest2020/dockerfiles/issues) if you have a suggestion or question.
+Please check that [there's a Dockerfile](https://github.com/icfpcontest2020/dockerfiles/tree/master/dockerfiles) for your programming language of choice and [send us a pull request](https://github.com/icfpcontest2020/dockerfiles/pulls) or [raise an issue](https://github.com/icfpcontest2020/dockerfiles/issues) if you have a suggestion or question.
 
 ## Getting started
 

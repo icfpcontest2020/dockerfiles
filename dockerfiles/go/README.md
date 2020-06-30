@@ -1,0 +1,1 @@
+Guaranteed to work with [starterkit-go](https://github.com/icfpcontest2020/starterkit-go).

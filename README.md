@@ -39,6 +39,8 @@ Submission system continuously checks every team's repository for updates in the
 
 There will be no Internet access during build. You will be limited to what your base Docker image provides and to the contents of your repository.
 
+Build time will be limited to _10 minutes_.
+
 ## Running mechanism
 
 Docker image built from your code will be started with a `docker run` command.

@@ -1,4 +1,4 @@
-FROM haskell:8.10.1 AS build
+FROM icfpcontest2020/haskell:latest AS build
 WORKDIR /source
 
 COPY . .

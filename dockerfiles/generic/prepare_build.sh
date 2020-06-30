@@ -16,5 +16,7 @@ set -e # do not proceed if we failed somewhere
 #       Please be kind and move as much as possible here (and don't change it too often)
 
 
-apt-get install less # just a small package to make an example
+# Uncomment the following line and put some packages there
+# apt-get install <something>
+
 apt-get clean && rm -rf /var/lib/apt/lists/*

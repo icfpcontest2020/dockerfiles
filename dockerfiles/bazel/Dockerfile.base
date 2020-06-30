@@ -1,0 +1,36 @@
+FROM debian:buster
+
+WORKDIR /bazel
+
+# Install dependencies.
+# https://docs.bazel.build/versions/3.3.0/install-ubuntu.html
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends g++ unzip zip openjdk-11-jdk wget python python3 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Use the binary installer to fix the version.
+RUN wget -q https://github.com/bazelbuild/bazel/releases/download/3.3.0/bazel-3.3.0-installer-linux-x86_64.sh && \
+    chmod +x bazel-3.3.0-installer-linux-x86_64.sh && \
+    ./bazel-3.3.0-installer-linux-x86_64.sh && \
+    rm -f bazel-3.3.0-installer-linux-x86_64.sh
+
+# Build the standard distfiles for hermetic builds.
+# https://docs.bazel.build/versions/master/guide.html#running-bazel-in-an-airgapped-environment
+RUN wget -q https://github.com/bazelbuild/bazel/archive/3.3.0.tar.gz && \
+    tar xf 3.3.0.tar.gz && \
+    cd bazel-3.3.0 && \
+    bazel --batch build @additional_distfiles//:archives.tar && \
+    mkdir -p /bazel/dist && \
+    tar xf bazel-bin/external/additional_distfiles/archives.tar -C /bazel/dist --strip-components=3 && \
+    cd .. && \
+    rm -rf 3.3.0.tar.gz bazel-3.3.0
+
+# Install third-party libraries to distfiles for hermetic builds.
+RUN cd /bazel/dist && wget -q \
+    https://github.com/bazelbuild/rules_cc/archive/b7fe9697c0c76ab2fd431a891dbb9a6a32ed7c3e.tar.gz \
+    https://github.com/bazelbuild/rules_java/archive/981f06c3d2bd10225e85209904090eb7b5fb26bd.tar.gz \
+    https://github.com/abseil/abseil-cpp/archive/20200225.2.zip \
+    https://github.com/gflags/gflags/archive/v2.2.2.zip \
+    https://github.com/google/glog/archive/6ca3d3cf5878020ebed7239139d6cd229a1e7edb.zip \
+    https://github.com/google/googletest/archive/release-1.10.0.zip

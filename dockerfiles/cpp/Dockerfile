@@ -3,9 +3,10 @@ WORKDIR /source
 
 COPY . .
 WORKDIR /source/app
-RUN g++ -o main main.cpp
+RUN mkdir /build
+RUN ./build
 
 FROM debian:buster-20200607-slim
 WORKDIR /build
-COPY --from=build /source/app/main .
-ENTRYPOINT ["./main"]
+COPY --from=build /build .
+ENTRYPOINT ["./run"]

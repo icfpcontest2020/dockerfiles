@@ -1,1 +1,30 @@
-FROM haskell:8.10.1
+FROM haskell:8.8.3
+
+ARG STACK_RESOLVER=lts-16.3
+
+RUN stack update && \
+  stack install --resolver ${STACK_RESOLVER} \
+    aeson \
+    array \
+    attoparsec \
+    bytestring \
+    cereal \
+    containers \
+    deepseq \
+    directory \
+    filepath \
+    hashable \
+    http-conduit \
+    io-streams \
+    lens \
+    monad-control \
+    MonadRandom \
+    mtl \
+    optparse-applicative \
+    random \
+    text \
+    time \
+    transformers \
+    transformers-base \
+    unordered-containers \
+    vector

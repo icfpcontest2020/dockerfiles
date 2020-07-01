@@ -33,4 +33,7 @@ RUN cd /bazel/dist && wget -q \
     https://github.com/abseil/abseil-cpp/archive/20200225.2.zip \
     https://github.com/gflags/gflags/archive/v2.2.2.zip \
     https://github.com/google/glog/archive/6ca3d3cf5878020ebed7239139d6cd229a1e7edb.zip \
-    https://github.com/google/googletest/archive/release-1.10.0.zip
+    https://github.com/google/googletest/archive/release-1.10.0.zip \
+    https://github.com/whoshuu/cpr/archive/1.5.0.zip \
+    https://curl.haxx.se/download/curl-7.69.1.tar.gz \
+    https://zlib.net/zlib-1.2.11.tar.gz

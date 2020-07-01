@@ -1,4 +1,4 @@
-FROM python:3.8.3
+FROM icfpcontest2020/python:latest
 WORKDIR /source
 
 COPY . .

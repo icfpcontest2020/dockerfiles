@@ -9,10 +9,10 @@ set -e # do not proceed if we failed somewhere
 # `apt-get clean && rm -rf /var/lib/apt/lists/*`
 # or you might end up in weird caching issues
 
-# Note: this must be a self-contained file and should not depent on any other file in your repo
+# Note: this must be a self-contained file and should not depend on any other file in your repo
 
 # Note: all the same can be done in build.sh, this file purely exists to speed-up build times
-#       and help orgamizer's team with possible cache issues
+#       and help organizer's team with possible cache issues
 #       Please be kind and move as much as possible here (and don't change it too often)
 
 

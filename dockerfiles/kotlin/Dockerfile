@@ -3,7 +3,7 @@ WORKDIR /source
 
 COPY . .
 WORKDIR /source/app
-RUN kotlinc Main.kt -include-runtime -d Main.jar
+RUN kotlinc *.kt -include-runtime -d Main.jar
 
 FROM openjdk:11.0.7-jre
 WORKDIR /build

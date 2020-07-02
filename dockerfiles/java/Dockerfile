@@ -3,9 +3,11 @@ WORKDIR /source
 
 COPY . .
 WORKDIR /source/app
-RUN javac Main.java
+RUN javac -d build *.java
+WORKDIR build
+RUN jar cfe Main.jar Main *
 
 FROM openjdk:11.0.7-jre
 WORKDIR /build
-COPY --from=build /source/app/Main.class .
-ENTRYPOINT ["java", "Main"]
+COPY --from=build /source/app/build/Main.jar .
+ENTRYPOINT ["java", "-jar", "Main.jar"]

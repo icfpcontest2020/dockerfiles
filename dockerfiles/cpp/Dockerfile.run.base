@@ -1,0 +1,7 @@
+FROM debian:buster-20200607-slim
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends apt-utils && \
+    apt-get install -y --no-install-recommends libcurl4 libjansson4 libgmp10 libgmpxx4ldbl libboost-atomic1.67.0 libboost-chrono1.67.0 libboost-container1.67.0 libboost-context1.67.0 libboost-contract1.67.0 libboost-coroutine1.67.0 libboost-date-time1.67.0 libboost-fiber1.67.0 libboost-filesystem1.67.0 libboost-graph-parallel1.67.0 libboost-graph1.67.0 libboost-iostreams1.67.0 libboost-locale1.67.0 libboost-log1.67.0 libboost-math1.67.0 libboost-mpi-python1.67.0 libboost-mpi1.67.0 libboost-numpy1.67.0 libboost-program-options1.67.0 libboost-python1.67.0 libboost-random1.67.0 libboost-regex1.67.0 libboost-serialization1.67.0 libboost-signals1.67.0 libboost-stacktrace1.67.0 libboost-system1.67.0 libboost-test1.67.0 libboost-thread1.67.0 libboost-timer1.67.0 libboost-type-erasure1.67.0 libboost-wave1.67.0 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*

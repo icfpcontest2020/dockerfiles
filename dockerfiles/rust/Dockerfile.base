@@ -1,0 +1,6 @@
+FROM rust:1.44.1-buster
+WORKDIR /source
+
+COPY Cargo.toml .
+COPY src/ .
+RUN cargo vendor

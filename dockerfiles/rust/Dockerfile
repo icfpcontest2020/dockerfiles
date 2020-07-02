@@ -1,11 +1,11 @@
-FROM rust:1.44.1-buster AS build
+FROM icfpcontest2020/rust:latest AS build
 WORKDIR /source
 
 COPY . .
-WORKDIR /source/app
-RUN cargo build --release
+RUN cargo build --release --offline
 
 FROM debian:buster-20200607-slim
 WORKDIR /target
+
 COPY --from=build /source/target/release/app .
 ENTRYPOINT ["./app"]

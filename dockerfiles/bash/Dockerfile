@@ -1,6 +1,5 @@
-FROM debian:buster-20200607-slim
-WORKDIR /source
+FROM icfpcontest2020/bash:latest
 
-COPY install . 
-
-ENTRYPOINT ["bash", "./run.sh"]
+WORKDIR /build
+COPY /app .
+ENTRYPOINT ["bash", "./run"]

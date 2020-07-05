@@ -1,12 +1,6 @@
-FROM icfpcontest2020/cpp-build:latest AS build
-WORKDIR /source
+FROM icfpcontest2020/cpp
 
+WORKDIR /app
 COPY . .
-WORKDIR /source/app
-RUN mkdir /build
-RUN ./build
-
-FROM icfpcontest2020/cpp-run:latest
-WORKDIR /build
-COPY --from=build /build .
-ENTRYPOINT ["./run"]
+RUN ./build.sh
+ENTRYPOINT ["./run.sh"]

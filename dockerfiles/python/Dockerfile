@@ -1,7 +1,6 @@
-FROM icfpcontest2020/python:latest
-WORKDIR /source
+FROM icfpcontest2020/python
 
+WORKDIR /solution
 COPY . .
-WORKDIR /source/app
-
-ENTRYPOINT ["python", "main.py"]
+RUN ./build.sh
+ENTRYPOINT ["./run.sh"]

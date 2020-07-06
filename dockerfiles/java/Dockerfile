@@ -1,13 +1,6 @@
-FROM openjdk:11.0.7 AS build
-WORKDIR /source
+FROM icfpcontest2020/java
 
+WORKDIR /solution
 COPY . .
-WORKDIR /source/app
-RUN javac -d build *.java
-WORKDIR build
-RUN jar cfe Main.jar Main *
-
-FROM openjdk:11.0.7-jre
-WORKDIR /build
-COPY --from=build /source/app/build/Main.jar .
-ENTRYPOINT ["java", "-jar", "Main.jar"]
+RUN ./build.sh
+ENTRYPOINT ["./run.sh"]

@@ -1,4 +1,4 @@
-FROM golang:1.14.4
+FROM icfpcontest2020/go
 
 WORKDIR /solution
 COPY . .

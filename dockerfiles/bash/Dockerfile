@@ -1,5 +1,6 @@
-FROM icfpcontest2020/bash:latest
+FROM icfpcontest2020/bash
 
-WORKDIR /build
-COPY /app .
-ENTRYPOINT ["bash", "./run"]
+WORKDIR /solution
+COPY . .
+RUN ./build.sh
+ENTRYPOINT ["./run.sh"]

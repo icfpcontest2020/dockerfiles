@@ -1,7 +1,6 @@
-FROM node:14.4.0
-WORKDIR /source
+FROM icfpcontest2020/javascript
 
+WORKDIR /solution
 COPY . .
-WORKDIR /source/app
-
-ENTRYPOINT ["node", "index.js"]
+RUN ./build.sh
+ENTRYPOINT ["./run.sh"]

@@ -1,14 +1,6 @@
-FROM elixir:1.10.3-slim as Build
+FROM icfpcontest2020/elixir
 
-WORKDIR /source
+WORKDIR /solution
 COPY . .
-WORKDIR /source/app/
-RUN ./bin/build
-
-
-FROM debian:buster-20200607-slim
-
-ENV LANG=C.UTF-8
-WORKDIR /app
-COPY --from=Build /source/app/release ./
-ENTRYPOINT ["./run"]
+RUN ./build.sh
+ENTRYPOINT ["./run.sh"]

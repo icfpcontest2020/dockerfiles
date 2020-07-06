@@ -1,3 +1,6 @@
+Guaranteed to work with [starterkit-factor](https://github.com/icfpcontest2020/starterkit-factor).
+Base image `icfpcontest2020/factor:latest` built automatically from `Dockerfile.base`.
+
 [Factor](https://www.factorcode.org) is a [concatenative](http://www.concatenative.org), stack-based programming language (forth like).
 
 

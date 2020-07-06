@@ -1,7 +1,6 @@
-FROM nixery.dev/bash/factor-lang
+FROM icfpcontest2020/factor
 
-WORKDIR /source
+WORKDIR /solution
 COPY . .
-
-ENTRYPOINT ["factor", "-roots=/source", "-run=solution"]
-
+RUN ./build.sh
+ENTRYPOINT ["./run.sh"]

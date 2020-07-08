@@ -1,7 +1,6 @@
-FROM ruby:2.7.1
-WORKDIR /source
+FROM icfpcontest2020/ruby
 
+WORKDIR /solution
 COPY . .
-WORKDIR /source/app
-
-ENTRYPOINT ["ruby", "main.rb"]
+RUN ./build.sh
+ENTRYPOINT ["./run.sh"]

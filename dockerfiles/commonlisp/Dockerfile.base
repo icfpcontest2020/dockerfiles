@@ -1,0 +1,27 @@
+FROM daewok/sbcl:2.0.6-ubuntu-fancy
+ARG DEBIAN_FRONTEND=noninteractive
+ENV LANG=C.UTF-8
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends apt-utils && \
+    apt-get install -y --no-install-recommends libssl-dev libffi-dev libfixposix-dev  && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN set -x \
+    && apt-get update && apt-get install -y --no-install-recommends curl gnupg ca-certificates && rm -rf /var/lib/apt \
+    && curl "https://beta.quicklisp.org/release-key.txt" > /tmp/quicklisp-release-key.txt \
+    && curl "https://beta.quicklisp.org/quicklisp.lisp" > /tmp/quicklisp.lisp \
+    && curl "https://beta.quicklisp.org/quicklisp.lisp.asc" > /tmp/quicklisp.lisp.asc \
+    && export GNUPGHOME="$(mktemp -d)" \
+    && gpg --batch --import /tmp/quicklisp-release-key.txt \
+    && gpg --batch --verify /tmp/quicklisp.lisp.asc /tmp/quicklisp.lisp \
+    && sync \
+    && sleep 2 \
+    && rm -rf "$GNUPGHOME" /tmp/quicklisp.lisp.asc \
+    && export HOME=/solution \
+    && sbcl --no-sysinit --no-userinit --non-interactive \
+            --load /tmp/quicklisp.lisp \
+            --eval "(quicklisp-quickstart:install)" \
+            --eval "(ql::without-prompting (ql:add-to-init-file :sbcl))" \
+            --eval "(ql::without-prompting (ql:quickload '(drakma alexandria split-sequence serapeum esrap cl-ppcre babel flexi-streams closer-mop cffi ironclad opticl cl-wav)))" \
+    && rm -rf /tmp/*

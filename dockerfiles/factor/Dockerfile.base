@@ -1,1 +1,1 @@
-FROM nixery.dev/bash/factor-lang
+FROM nixery.dev/bash/coreutils-prefixed/factor-lang

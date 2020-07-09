@@ -1,4 +1,8 @@
 FROM evilbeaver/onescript:1.4.0
-COPY main.os main.os
-CMD []
-ENTRYPOINT ["oscript", "main.os"]
+
+WORKDIR /solution
+COPY . .
+RUN chmod +x ./build.sh
+RUN chmod +x ./run.sh
+RUN ./build.sh
+ENTRYPOINT ["./run.sh"]

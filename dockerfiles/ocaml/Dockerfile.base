@@ -1,4 +1,33 @@
 FROM ocaml/opam2:4.10
 
 RUN opam update && \
-  opam install
+  opam install \
+    alcotest \
+    angstrom \
+    base \
+    base64 \
+    batteries \
+    bnfgen \
+    bitstring \
+    cohttp \
+    core \
+    core_kernel \
+    cryptokit \
+    dune \
+    faraday \
+    fix \
+    fmt \
+    js_of_ocaml \
+    lens \
+    logs \
+    lwt \
+    menhir \
+    ounit2 \
+    owl \
+    ppx_deriving \
+    re \
+    react \
+    reason \
+    sexplib \
+    utop \
+    yojson \

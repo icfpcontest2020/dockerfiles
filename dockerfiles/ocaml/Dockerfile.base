@@ -1,7 +1,7 @@
 FROM ocaml/opam2:4.10
 
 RUN opam update && \
-  opam install \
+  opam depext \
     alcotest \
     angstrom \
     base \

@@ -27,4 +27,5 @@ RUN stack update && \
     transformers \
     transformers-base \
     unordered-containers \
+    utf8-string \
     vector

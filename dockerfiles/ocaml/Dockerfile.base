@@ -19,7 +19,6 @@ RUN opam update && \
     faraday \
     fix \
     fmt \
-    js_of_ocaml \
     lens \
     logs \
     lwt \

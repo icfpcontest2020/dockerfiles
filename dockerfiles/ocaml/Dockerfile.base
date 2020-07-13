@@ -9,7 +9,6 @@ RUN opam update && \
     base \
     base64 \
     batteries \
-    bnfgen \
     bitstring \
     cohttp \
     core \
@@ -35,6 +34,5 @@ RUN opam update && \
     react \
     reason \
     sexplib \
-    utop \
     yojson \
     zarith

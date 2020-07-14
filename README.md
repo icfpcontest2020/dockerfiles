@@ -36,7 +36,7 @@ Submission system continuously checks every team's repository for updates in the
 1. Clone the repository into a clean directory, check out the appropriate branch.
 2. Read the first word from the `.platform` file.
 3. Create/replace a Dockerfile in the root directory with contents from `dockerfiles/<platform>/Dockerfile` of _this_ repository (not your team's repository). `<platform>` is the word from step 2.
-4. Run `docker build`. This step will run the `build.sh` script in your repository. Resulting image will be tagged with the commit hash and appear in the list of your submissions in your profile on the ICFPC web site, along with build logs. Assuming everything went well, your submission is now accepted and ready to run.
+4. Run `docker build .`. This step will run the `build.sh` script in your repository. Resulting image will be tagged with the commit hash and appear in the list of your submissions in your profile on the ICFPC web site, along with build logs. Assuming everything went well, your submission is now accepted and ready to run.
 
 There will be no Internet access during build. You will be limited to what your base Docker image provides and to the contents of your repository.
 

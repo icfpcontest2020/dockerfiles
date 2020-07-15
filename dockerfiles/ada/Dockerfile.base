@@ -1,0 +1,9 @@
+FROM ubuntu:latest
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends openssl libssl-dev zlib1g zlib1g-dev binutils gnat gprbuild git make gcc ca-certificates && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    git clone --recursive https://github.com/AdaCore/aws /opt/aws && \
+    cd /opt/aws && \
+    make NETLIB=ipv6 SOCKET=openssl setup build install

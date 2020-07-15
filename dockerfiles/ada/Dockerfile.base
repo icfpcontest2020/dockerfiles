@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:focal-20200703
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends openssl libssl-dev zlib1g zlib1g-dev binutils gnat gprbuild git make gcc ca-certificates && \

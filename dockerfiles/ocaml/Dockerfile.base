@@ -12,6 +12,8 @@ RUN opam update && \
     batteries \
     bitstring \
     cohttp \
+    cohttp-lwt \
+    cohttp-lwt-unix \
     core \
     core_kernel \
     cppo \

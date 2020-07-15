@@ -11,7 +11,11 @@ let () =
   let player_key = Sys.argv.(2) in
   printf "ServerUrl: %s; PlayerKey: %s\n" server_url player_key;
   Lwt_main.run begin
-    Client.post (Uri.of_string server_url) >>= fun (resp, body) ->
+    Client.post
+      ~body:(Cohttp_lwt.Body.of_string player_key)
+      ~headers:(Cohttp.Header.of_list [("Content-Length", string_of_int (String.length player_key))])
+      (Uri.of_string server_url)
+    >>= fun (resp, body) ->
     body |> Cohttp_lwt.Body.to_string >|= fun body ->
     match Response.status resp with
       | `OK ->

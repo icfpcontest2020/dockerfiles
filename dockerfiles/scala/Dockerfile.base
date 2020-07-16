@@ -1,0 +1,13 @@
+FROM openjdk:14-jdk-alpine
+
+RUN apk add --no-cache curl bash
+
+ENV SCALA_URL='https://downloads.lightbend.com/scala/2.13.3/scala-2.13.3.tgz'
+ENV SCALA_HOME='/usr/local/share/scala'
+
+RUN curl -fsSL "${SCALA_URL}" -o /tmp/scala.tgz && \
+  mkdir -p "${SCALA_HOME}" && \
+  tar -xf /tmp/scala.tgz -C "${SCALA_HOME}" --strip-components=1 && \
+  rm -rf /tmp/scala.tgz
+
+ENV PATH="${PATH}:${SCALA_HOME}/bin"

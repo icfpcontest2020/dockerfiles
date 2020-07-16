@@ -28,12 +28,17 @@ RUN wget -q https://github.com/bazelbuild/bazel/archive/3.3.0.tar.gz && \
 
 # Install third-party libraries to distfiles for hermetic builds.
 RUN cd /bazel/dist && wget -q \
+    https://curl.haxx.se/download/curl-7.69.1.tar.gz \
+    https://dl.google.com/go/go1.14.5.linux-amd64.tar.gz \
+    https://github.com/abseil/abseil-cpp/archive/20200225.2.zip \
     https://github.com/bazelbuild/rules_cc/archive/b7fe9697c0c76ab2fd431a891dbb9a6a32ed7c3e.tar.gz \
     https://github.com/bazelbuild/rules_java/archive/981f06c3d2bd10225e85209904090eb7b5fb26bd.tar.gz \
-    https://github.com/abseil/abseil-cpp/archive/20200225.2.zip \
     https://github.com/gflags/gflags/archive/v2.2.2.zip \
     https://github.com/google/glog/archive/6ca3d3cf5878020ebed7239139d6cd229a1e7edb.zip \
     https://github.com/google/googletest/archive/release-1.10.0.zip \
+    https://github.com/madler/zlib/archive/v1.2.11.tar.gz \
     https://github.com/whoshuu/cpr/archive/1.5.0.zip \
-    https://curl.haxx.se/download/curl-7.69.1.tar.gz \
+    https://mirror.bazel.build/github.com/bazelbuild/bazel-skylib/releases/download/1.0.2/bazel-skylib-1.0.2.tar.gz \
+    https://mirror.bazel.build/github.com/bazelbuild/platforms/archive/9ded0f9c3144258dad27ad84628845bcd7ca6fe6.zip \
+    https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.23.4/rules_go-v0.23.4.tar.gz \
     https://zlib.net/zlib-1.2.11.tar.gz

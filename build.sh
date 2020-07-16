@@ -1,4 +1,4 @@
 #!/bin/sh
 
 eval "$(opam env)"
-ocamlfind opt -thread -linkpkg -package cohttp-lwt-unix app/main.ml -o app/app
+ocamlfind opt -thread -linkpkg -package curl app/main.ml -o app/app

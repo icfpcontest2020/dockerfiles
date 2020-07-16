@@ -1,8 +1,24 @@
 
-open Lwt
-open Cohttp
-open Cohttp_lwt_unix
 open Printf
+
+
+let post ~url ~data : int * string =
+  let b = Buffer.create 100 in
+  let c = Curl.init () in
+  Curl.set_timeout c 100; (* seconds *)
+  Curl.set_sslverifypeer c false;
+  Curl.set_sslverifyhost c Curl.SSLVERIFYHOST_EXISTENCE;
+  Curl.set_writefunction c (fun s -> Buffer.add_string b s; String.length s);
+  Curl.set_tcpnodelay c true;
+  Curl.set_verbose c false;
+  Curl.set_url c url;
+  Curl.set_post c true;
+  Curl.set_postfields c data;
+  Curl.set_postfieldsize c (String.length data);
+  Curl.perform c;
+  let code = Curl.get_responsecode c in
+  Curl.cleanup c;
+  (code, Buffer.contents b)
 
 
 let () =
@@ -10,19 +26,12 @@ let () =
   let server_url = Sys.argv.(1) in
   let player_key = Sys.argv.(2) in
   printf "ServerUrl: %s; PlayerKey: %s\n" server_url player_key;
-  Lwt_main.run begin
-    Client.post
-      ~body:(Cohttp_lwt.Body.of_string player_key)
-      ~headers:(Cohttp.Header.of_list [("Content-Length", string_of_int (String.length player_key))])
-      (Uri.of_string server_url)
-    >>= fun (resp, body) ->
-    body |> Cohttp_lwt.Body.to_string >|= fun body ->
-    match Response.status resp with
-      | `OK ->
-          printf "Server response: %s\n" body
-      | status ->
-          printf "Unexpected server response:\n";
-          printf "HTTP code: %d\n" (Code.code_of_status status);
-          printf "Response body: %s\n" body;
-          exit 2
-  end
+  Curl.global_init Curl.CURLINIT_GLOBALALL;
+  match post ~url:server_url ~data:player_key with
+    | (200, body) ->
+        printf "Server response: %s\n" body
+    | (code, body) ->
+        printf "Unexpected server response:\n";
+        printf "HTTP code: %d\n" code;
+        printf "Response body: %s\n" body;
+        exit 2

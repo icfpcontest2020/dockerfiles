@@ -31,7 +31,7 @@ If your favorite language is missing, or you know a way to improve existing Dock
 
 ## Submission mechanism
 
-Submission system continuously checks every team's repository for updates in the `submission` and `submissions/*` branches. All other branches are ignored. New commits trigger a build which has the following steps:
+Submission system continuously checks every team's repository for updates in the `submission` and `submissions/*` branches (`refs/heads/submission` and `refs/heads/submissions/*` to be accurate). All other branches are ignored. New commits trigger a build which has the following steps:
 
 1. Clone the repository into a clean directory, check out the appropriate branch.
 2. Read the first word from the `.platform` file.

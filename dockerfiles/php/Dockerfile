@@ -1,4 +1,4 @@
-FROM php:7.4-cli
+FROM icfpcontest2020/php
 
 WORKDIR /solution
 COPY . .

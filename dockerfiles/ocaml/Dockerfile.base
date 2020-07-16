@@ -29,6 +29,7 @@ RUN opam update && \
     lwt \
     menhir \
     ocamlbuild \
+    ocurl \
     ounit2 \
     owl \
     ppx_deriving \

@@ -1,0 +1,45 @@
+FROM ubuntu:20.04
+# using ubuntu as distro which has a better set of defaults and packages
+# using 20:04 as it's latest at the moment (July 2020)
+# not using latest explicitly to make it future proof
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Install locales and set UTF-8 as default locale to avoid common pitfails
+RUN apt-get update && apt-get install -y  apt-utils locales \
+    && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+ENV LANG en_US.utf8
+
+# C/C++ & coredeps
+RUN apt-get update && apt-get install -y \
+        locales coreutils bash binutils \
+        build-essential cmake openssl libssl-dev ca-certificates \
+        clang llvm-dev libgmp-dev libboost1.67-all-dev libffi-dev \
+        curl wget sed gawk perl git unzip zip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Rust
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rup.sh \
+    && sh rup.sh -y \
+    && rm rup.sh
+
+# Java (11 for scala)
+RUN apt-get update && apt-get install -y \
+    openjdk-11-jdk \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Scala
+RUN wget -q https://downloads.lightbend.com/scala/2.12.2/scala-2.12.2.deb \
+    && dpkg -i scala-2.12.2.deb \
+    && rm scala-2.12.2.deb
+
+# Python
+RUN apt-get update && apt-get install -y \
+    python3 python3-dev python3-pip python3-wheel \
+    && python3 -m pip install -U pip wheel setuptools \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*

@@ -33,3 +33,5 @@ RUN stack update && \
     utf8-string \
     uuid \
     vector
+    either \
+    strict

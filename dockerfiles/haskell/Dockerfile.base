@@ -28,4 +28,6 @@ RUN stack update && \
     transformers-base \
     unordered-containers \
     utf8-string \
-    vector
+    vector \
+    either \
+    strict

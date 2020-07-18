@@ -32,6 +32,6 @@ RUN stack update && \
     unordered-containers \
     utf8-string \
     uuid \
-    vector
+    vector \
     either \
     strict
